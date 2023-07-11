@@ -1,0 +1,262 @@
+@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300");
+@import url(font-awesome.min.css);
+
+*,
+*::before,
+*::after {
+    border: 0;
+    box-sizing: inherit;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-color: #fff;
+    --font-color: #313f47;
+    --gray: #b9b9b9;
+    --gray: #aaa;
+    --hover: #537574;
+    /* --hover: #0087ca; */
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    align-content: center;
+    backdrop-filter: blur(5px);
+    background: url("../img/background.jpg") center / cover;
+    color: var(--font-color);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    opacity: 0;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    color: var(--font-color);
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a,
+p a,
+li a {
+    color: inherit;
+    text-decoration: none;
+}
+
+p {
+    letter-spacing: 0.15rem;
+}
+
+h1 {
+    font-size: 1.5rem;
+    letter-spacing: 0.15rem;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.25rem;
+}
+
+article {
+    margin: auto;
+    text-align: center;
+    width: 100%;
+}
+
+.card {
+    margin: auto;
+    padding: 0;
+    width: 28rem;
+    opacity: 0.85;
+    opacity: 0;
+    transform: rotateX(-35deg);
+    transition: opacity 2s, transform 2s;
+}
+
+.card.loaded {
+    opacity: 1;
+    transform: rotateX(0deg);
+}
+
+.card-body {
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 60px 30px 60px;
+}
+
+span.avatar {
+    display: block;
+    margin-bottom: 1.5em;
+    position: relative;
+}
+
+span.avatar img {
+    border-radius: 100%;
+    box-shadow: 0 0 0 1.5rem #ffffff;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    width: 8rem;
+    z-index: 1;
+}
+
+span.avatar:before {
+    background: var(--gray);
+    content: '';
+    display: block;
+    height: 1px;
+    left: -3.8em;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    width: calc(100% + 7.6em);
+}
+
+ul.icons {
+    margin: 0;
+    padding: 0;
+}
+
+ul.icons li {
+    display: inline-block;
+    margin: auto;
+    padding: 0.675em 0.5em;
+}
+
+i {
+    color: var(--gray);
+    font-size: 1.5rem;
+    transition: .25s all;
+}
+
+ul.icons li a i:hover,
+ul.icons li a i.active {
+    color: var(--hover);
+    transform: scale(1.2);
+}
+
+footer {
+    align-self: flex-end;
+    color: var(--bg-color);
+    cursor: default;
+    padding: 1.5rem 0;
+    text-align: center;
+    width: 100%;
+
+    opacity: 0;
+    transform: rotateX(-35deg);
+    transition: opacity 2s, transform 2s;
+}
+
+footer.loaded {
+    opacity: 1;
+    transform: rotateX(0deg);
+}
+
+footer .copyright {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+footer .copyright li {
+    border-left: solid 1px var(--bg-color);
+    display: inline-block;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.15rem;
+    margin: 0 0 0 0.45em;
+    padding: 0 0 0 0.85em;
+}
+
+footer .copyright li:first-child {
+    border-left: 0;
+}
+
+
+footer ul.copyright li a.line-animation::after {
+    background-color: var(--bg-color);
+}
+
+.line-animation {
+    display: inline-block;
+    position: relative;
+}
+
+.line-animation::after {
+    background-color: var(--hover);
+    bottom: 0;
+    content: '';
+    height: 1.5px;
+    left: 0;
+    position: absolute;
+    transform-origin: bottom right;
+    transform: scaleX(0);
+    transition: transform 0.25s ease-out;
+    width: 100%;
+}
+
+.line-animation:hover::after {
+    transform-origin: bottom left;
+    transform: scaleX(1);
+}
+
+
+
+@media screen and (max-width: 480px) {
+    .card {
+        width: 75%;
+    }
+
+    .card-body {
+        padding: 30px;
+    }
+
+    span.avatar img {
+        box-shadow: 0 0 0 .5rem #ffffff;
+        width: 6rem;
+    }
+
+    span.avatar:before {
+        left: -1.9rem;
+        width: calc(100% + 3.8em);
+    }
+}
+
+@media screen and (max-width: 377px) {
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    footer .copyright li {
+        font-size: 0.7rem;
+    }
+}
