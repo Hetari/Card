@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', function () {
+window.onload = function () {
     const body = document.querySelector('body');
     const card = document.querySelector('.card');
     const footer = document.querySelector('footer');
